@@ -1,7 +1,7 @@
 // inspired by https://exercism.io/tracks/javascript/exercises/etl/solutions/91f99a3cca9548cebe5975d7ebca6a85
 
 const input = require("readline-sync");
-
+let word;
 const oldPointStructure = {
   1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
   2: ['D', 'G'],
@@ -26,6 +26,7 @@ function oldScrabbleScorer(word) {
  
 	  }
 	}
+  console.log(letterPoints);
 	return letterPoints;
  }
 
@@ -33,7 +34,8 @@ function oldScrabbleScorer(word) {
 // don't change the names or your program won't work as expected. //
 
 function initialPrompt() {
-   console.log("Let's play some scrabble! Enter a word:");
+   word = input.question("Let's play some scrabble! Enter a word:");
+   return word;
 };
 
 let simpleScore;
@@ -52,6 +54,7 @@ let newPointStructure;
 
 function runProgram() {
    initialPrompt();
+   oldScrabbleScorer(word);
    
 }
 
