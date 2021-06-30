@@ -38,9 +38,34 @@ function initialPrompt() {
    return word;
 };
 
-let simpleScore;
+let simpleScore = function(word) {
+  let score = 0;
+  word = word.toUpperCase();
+  for (let i = 0; i < word.length; i++) {
+    score += 1;
+  }
+  console.log(score);
+}
 
-let vowelBonusScore;
+let vowelBonusScore = function(word) {
+  let vowels = ["A", "E", "I", "O", "U", "Y"];
+  let score = 0;
+  word = word.toUpperCase();
+  splitWord = word.split('');
+  console.log(splitWord);
+  for (let i = 0; i < splitWord.length; i++) {
+    for (let j = 0; j < vowels.length; j++) {
+      if (splitWord[i] === vowels[j]) {
+        score += 3;
+      }
+    }
+  }
+  let tempScore = score/3;
+  tempScore = splitWord.length - tempScore;
+  score = tempScore + score;
+  console.log(score);
+  return score;
+}
 
 let scrabbleScore;
 
@@ -53,9 +78,9 @@ function transform() {};
 let newPointStructure;
 
 function runProgram() {
-   initialPrompt();
-   oldScrabbleScorer(word);
-   
+  //  initialPrompt();
+  //  oldScrabbleScorer(word);
+   vowelBonusScore("Aaron");
 }
 
 // Don't write any code below this line //
