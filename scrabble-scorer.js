@@ -127,9 +127,7 @@ function transform(object) {
   return newObject;
 };
 
-let newPointStructure = function(){
-  return transform(oldPointStructure);
-};
+let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
   initialPrompt();
