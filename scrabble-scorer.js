@@ -132,9 +132,8 @@ let newPointStructure = function(){
 };
 
 function runProgram() {
-  // initialPrompt();
-  // scorerPrompt(word, scoringAlgorithms);
-  console.log(newPointStructure());
+  initialPrompt();
+  scorerPrompt(word, scoringAlgorithms);
 
 }
 
