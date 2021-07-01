@@ -15,15 +15,11 @@ const oldPointStructure = {
 function oldScrabbleScorer(word) {
 	word = word.toUpperCase();
 	let letterPoints = "";
- 
 	for (let i = 0; i < word.length; i++) {
- 
 	  for (const pointValue in oldPointStructure) {
- 
 		 if (oldPointStructure[pointValue].includes(word[i])) {
 			letterPoints += `Points for '${word[i]}': ${pointValue}\n`
 		 }
- 
 	  }
 	}
   console.log(letterPoints);
@@ -45,7 +41,7 @@ let simpleScore = function(word) {
   for (let i = 0; i < word.length; i++) {
     score += 1;
   }
-  console.log(`Score for '${word}': ${score}`);
+  console.log(`Score for '${word}': ${score}\n`);
 }
 
 let vowelBonusScore = function(word) {
@@ -63,11 +59,23 @@ let vowelBonusScore = function(word) {
   let tempScore = score/3;
   tempScore = splitWord.length - tempScore;
   score = tempScore + score;
-  console.log(`Score for '${word}': ${score}`);
+  console.log(`Score for '${word}': ${score}\n`);
   return score;
 }
 
-let scrabbleScore;
+let scrabbleScore = function(word) {
+  word = word.toLowerCase();
+	let letterPoints = 0;
+	for (let i = 0; i < word.length; i++) {
+	  for (const letter in newPointStructure()) {
+      if (word[i].includes(letter)) {
+        letterPoints += Number(newPointStructure()[letter]);
+      }
+		 }
+	  }
+  console.log(`Points for '${word}': ${letterPoints}\n`);
+	return letterPoints;
+}
 
 const scoringAlgorithms = [
   {
@@ -83,7 +91,7 @@ const scoringAlgorithms = [
   {
     name : "Scrabble",
     description : "The traditional scoring algorithm.",
-    scoringFunction: oldScrabbleScorer
+    scoringFunction: scrabbleScore
   }
 
 ];
@@ -106,35 +114,20 @@ Enter 0, 1, or 2: `)
   }
 }
 
-function transform() {};
+function transform(object) {
+  let newObject = {};
+  let keys = Object.keys(object)
+  keys.forEach((key) => {
+    let eachArray = object[key];
+    eachArray.forEach((eaLetter) => {
+      newObject[eaLetter.toLowerCase()] = key;
+    }) 
+  })
+  return newObject;
+};
 
-let newPointStructure = {
-  "a" : 1,
-  "b" : 3,
-  "c" : 3,
-  "d" : 2,
-  "e" : 1,
-  "f" : 4,
-  "g" : 2,
-  "h" : 4,
-  "i" : 1,
-  "j" : 8,
-  "k" : 5,
-  "l" : 1,
-  "m" : 3,
-  "n" : 1,
-  "o" : 1,
-  "p" : 3,
-  "q" : 10,
-  "r" : 1,
-  "s" : 1,
-  "t" : 1,
-  "u" : 1,
-  "v" : 4,
-  "w" : 4,
-  "x" : 8,
-  "y" : 4,
-  "z" : 10
+let newPointStructure = function(){
+  return transform(oldPointStructure);
 };
 
 function runProgram() {
