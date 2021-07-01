@@ -68,9 +68,9 @@ let scrabbleScore = function(word) {
   word = word.toLowerCase();
 	let letterPoints = 0;
 	for (let i = 0; i < word.length; i++) {
-	  for (const letter in newPointStructure()) {
+	  for (const letter in newPointStructure) {
       if (word[i].includes(letter)) {
-        letterPoints += Number(newPointStructure()[letter]);
+        letterPoints += Number(newPointStructure[letter]);
       }
 		 }
 	  }
@@ -127,9 +127,11 @@ function transform(object) {
   return newObject;
 };
 
-let newPointStructure = function(){
-  return transform(oldPointStructure);
-};
+// let newPointStructure = function(){
+//   return transform(oldPointStructure);
+// };
+let newPointStructure = transform(oldPointStructure);
+
 
 function runProgram() {
   initialPrompt();
