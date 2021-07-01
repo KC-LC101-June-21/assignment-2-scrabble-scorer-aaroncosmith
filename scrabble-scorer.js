@@ -42,6 +42,7 @@ let simpleScore = function(word) {
     score += 1;
   }
   console.log(`Score for '${word}': ${score}\n`);
+  return score;
 }
 
 let vowelBonusScore = function(word) {
@@ -133,6 +134,7 @@ let newPointStructure = function(){
 function runProgram() {
   initialPrompt();
   scorerPrompt(word, scoringAlgorithms);
+  // console.log(newPointStructure());
 }
 
 // Don't write any code below this line //
