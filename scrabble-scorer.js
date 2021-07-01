@@ -134,9 +134,7 @@ let newPointStructure = function(){
 function runProgram() {
   initialPrompt();
   scorerPrompt(word, scoringAlgorithms);
-  // console.log(newPointStructure())
 }
-
 // Don't write any code below this line //
 // And don't change these or your program will not run as expected //
 module.exports = {
