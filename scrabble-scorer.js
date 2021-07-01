@@ -130,9 +130,9 @@ function transform(object) {
 let newPointStructure = transform(oldPointStructure);
 
 function runProgram() {
-  // initialPrompt();
-  // scorerPrompt(word, scoringAlgorithms);
-  console.log(newPointStructure())
+  initialPrompt();
+  scorerPrompt(word, scoringAlgorithms);
+
 }
 
 // Don't write any code below this line //
