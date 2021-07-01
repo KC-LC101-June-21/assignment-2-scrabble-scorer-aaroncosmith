@@ -121,7 +121,7 @@ function transform(object) {
   keys.forEach((key) => {
     let eachArray = object[key];
     eachArray.forEach((eaLetter) => {
-      newObject[eaLetter.toLowerCase()] = key;
+      newObject[eaLetter.toLowerCase()] = Number(key);
     }) 
   })
   return newObject;
@@ -132,9 +132,10 @@ let newPointStructure = function(){
 };
 
 function runProgram() {
-  initialPrompt();
-  scorerPrompt(word, scoringAlgorithms);
-  // console.log(newPointStructure());
+  // initialPrompt();
+  // scorerPrompt(word, scoringAlgorithms);
+  console.log(newPointStructure());
+
 }
 
 // Don't write any code below this line //
